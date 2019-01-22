@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View,FlatList,YellowBox } from 'react-native';
-//import { Menu, MenuProvider, MenuOptions, MenuOption, MenuTrigger} from "react-native-popup-menu";
 import PickerMoney from './components/Picker';
 import TextInputClass from './components/TextInputClass';
 import Api from './utils/Api.js';
