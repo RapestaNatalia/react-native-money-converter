@@ -30,7 +30,7 @@ export default class TextInputClass extends Component {
     );
   }
   async onChangeText(text,input,output){
-      this.setValueToConvert(t);
+      this.setValueToConvert(text);
       let apiInstance = Api.getInstance();
       const res=await apiInstance.getLatestConversion(text,input,output);
       this.setState({result:res});
