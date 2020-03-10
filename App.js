@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View,FlatList,YellowBox } from 'react-native';
+import { StyleSheet, Text, View,YellowBox } from 'react-native';
 import PickerMoney from './components/Picker';
 import TextInputClass from './components/TextInputClass';
 import Api from './utils/Api.js';
 import ReverseCurrencie from './components/ReverseCurrencie';
+import { theme } from './constants/theme';
 
 
 export default class App extends React.Component {
@@ -20,7 +21,7 @@ export default class App extends React.Component {
       result:''
     }
   }
-    setInputCurrencie = (val) =>{ 
+    setInputCurrencie = (val) =>{
    if(val)
      this.setState({inputCurrencie:val });
   }
@@ -53,9 +54,9 @@ export default class App extends React.Component {
       this.setState({
         currencies:moneys,
           loading:false
-      })    
+      })
   }
-  
+
 
 
   render() {
@@ -66,26 +67,26 @@ export default class App extends React.Component {
         </View>
         );
        }
-  
+
       return (
 
-        <View style={styles.container}>  
-          <Text style={styles.presentationText}>Currency conversion</Text>  
+        <View style={styles.container}>
+          <Text style={styles.presentationText}>Currency conversion</Text>
           <View >
-            <PickerMoney   currencies={this.state.currencies} valueToConvert={this.state.valueToConvert} setResult={this.setResult} inputCurrencie={this.state.inputCurrencie} outputCurrencie={this.state.outputCurrencie} setValueToConvert={this.setValueToConvert} onSelect={this.setInputCurrencie} selected={this.state.inputCurrencie}/> 
+            <PickerMoney   currencies={this.state.currencies} valueToConvert={this.state.valueToConvert} setResult={this.setResult} inputCurrencie={this.state.inputCurrencie} outputCurrencie={this.state.outputCurrencie} setValueToConvert={this.setValueToConvert} onSelect={this.setInputCurrencie} selected={this.state.inputCurrencie}/>
             <TextInputClass  setResult={this.setResult} inputCurrencie={this.state.inputCurrencie} outputCurrencie={this.state.outputCurrencie} setValueToConvert={this.setValueToConvert}/>
          </View>
           <View >
-            <PickerMoney  currencies={this.state.currencies}  valueToConvert={this.state.valueToConvert} setResult={this.setResult} inputCurrencie={this.state.inputCurrencie} outputCurrencie={this.state.outputCurrencie} setValueToConvert={this.setValueToConvert} onSelect={this.setOutputCurrencie} selected={this.state.outputCurrencie}/> 
+            <PickerMoney  currencies={this.state.currencies}  valueToConvert={this.state.valueToConvert} setResult={this.setResult} inputCurrencie={this.state.inputCurrencie} outputCurrencie={this.state.outputCurrencie} setValueToConvert={this.setValueToConvert} onSelect={this.setOutputCurrencie} selected={this.state.outputCurrencie}/>
             <Text style={styles.text}>{this.state.result}</Text>
-          </View> 
-          <View style={styles.reverse}>   
-            <ReverseCurrencie style={styles.button} setResult={this.setResult} valueToConvert={this.state.valueToConvert} inputCurrencie={this.state.inputCurrencie} outputCurrencie={this.state.outputCurrencie} setValueToConvert={this.setValueToConvert} setReverseValues={this.setReverseValues}/>      
+          </View>
+          <View style={styles.reverse}>
+            <ReverseCurrencie style={styles.button} setResult={this.setResult} valueToConvert={this.state.valueToConvert} inputCurrencie={this.state.inputCurrencie} outputCurrencie={this.state.outputCurrencie} setValueToConvert={this.setValueToConvert} setReverseValues={this.setReverseValues}/>
           </View>
          </View>
-      
+
       );
-      
+
 
   }
 }
@@ -97,19 +98,19 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: theme.color.white
 
   },
   loading:{
     fontStyle:'italic',
     fontSize:30,
-    color:"#841584"
+    color:theme.color.violet
   },
   text:{
     height: 50,
-    width:150, 
+    width:150,
     padding:5,
-    borderColor: 'gray',
+    borderColor: theme.color.black,
     borderWidth: 1
   },
   reverse:{
