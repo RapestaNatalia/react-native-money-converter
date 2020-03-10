@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, TextInput, View,Button } from 'react-native';
+import { Button } from 'react-native';
 import Api from '../utils/Api.js';
+import  {strings}  from '../constants/strings';
+import { theme } from '../constants/theme';
 
 export default class ReverseCurrencie extends Component {
   constructor(props) {
     super(props);
     this.state = {result:0,loading:false};
-   
+
   }
   setValueToConvert(val){
      this.props.setValueToConvert(val);
@@ -21,9 +23,9 @@ export default class ReverseCurrencie extends Component {
     return (
      <Button
         onPress={()=>this.callApi(this.props.valueToConvert,this.props.inputCurrencie,this.props.outputCurrencie)}
-        title="ReverseCurrencie"
-        color="#841584"
-        accessibilityLabel="Put the input money as output money an vice versa."
+        title={strings.reverseButton}
+        color={theme.color.violet}
+        accessibilityLabel={strings.reverseCurrenciesLabel}
       />
     );
   }
